@@ -1,0 +1,197 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvy1pipuyvjwv"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8042s"]
+[ext_resource type="Texture2D" uid="uid://dk5stubeksj26" path="res://song graph.png" id="1_mtcif"]
+[ext_resource type="PackedScene" uid="uid://bi4ojvye318qe" path="res://base_cursor.tscn" id="2_lq030"]
+[ext_resource type="Script" path="res://ToolTip.gd" id="4_mp700"]
+[ext_resource type="LabelSettings" uid="uid://dejc7qnvtryqs" path="res://basic_text.tres" id="5_ytha8"]
+[ext_resource type="Texture2D" uid="uid://cgm6ag0wvtvpg" path="res://arrows/arrow_left.png" id="6_ynndh"]
+[ext_resource type="Texture2D" uid="uid://cbyy7o2ivb1su" path="res://arrows/arrow_right.png" id="7_2iing"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4nfs6"]
+
+[node name="main" type="Node2D"]
+position = Vector2(400, 400)
+script = ExtResource("1_8042s")
+
+[node name="Cursor0" parent="." instance=ExtResource("2_lq030")]
+
+[node name="SongGraph" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_mtcif")
+
+[node name="Tutorial" type="Label" parent="."]
+offset_left = 400.0
+offset_right = 520.0
+offset_bottom = 100.0
+text = "Yo! Because of the way that
+godot is, height/width scaling is in percents!
+Also, remember: color is out of 255!
+1 unit is 40 x/y units!"
+label_settings = SubResource("LabelSettings_4nfs6")
+autowrap_mode = 2
+
+[node name="ToolTip" type="Label" parent="."]
+visible = false
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+text = "AAAA"
+script = ExtResource("4_mp700")
+
+[node name="ColorRect" type="ColorRect" parent="ToolTip"]
+z_index = -1
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 23.0
+mouse_filter = 2
+color = Color(0.380392, 0.380392, 0.380392, 0.67451)
+
+[node name="Circle_Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 67.0
+offset_right = 40.0
+offset_bottom = 107.0
+mouse_filter = 2
+
+[node name="Left_Arrow" type="TextureButton" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = -435.0
+offset_right = 427.0
+offset_bottom = -403.0
+texture_normal = ExtResource("6_ynndh")
+
+[node name="Right_Arrow" type="TextureButton" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 493.0
+offset_top = -435.0
+offset_right = 525.0
+offset_bottom = -403.0
+texture_normal = ExtResource("7_2iing")
+
+[node name="Name" type="TextEdit" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = -467.0
+offset_right = 528.0
+offset_bottom = -436.0
+text = "Cursor 0"
+
+[node name="Height_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -400.0
+offset_right = 536.0
+offset_bottom = -369.0
+max_value = 255.0
+prefix = "Height: "
+select_all_on_focus = true
+
+[node name="Width_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -369.0
+offset_right = 536.0
+offset_bottom = -338.0
+max_value = 255.0
+prefix = "Width: "
+select_all_on_focus = true
+
+[node name="X_loc_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -334.0
+offset_right = 536.0
+offset_bottom = -303.0
+min_value = -400.0
+max_value = 400.0
+prefix = "X: "
+select_all_on_focus = true
+
+[node name="Y_loc_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -303.0
+offset_right = 536.0
+offset_bottom = -272.0
+min_value = -400.0
+max_value = 400.0
+prefix = "Y: "
+select_all_on_focus = true
+
+[node name="Color" type="Label" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = -268.0
+offset_right = 525.0
+offset_bottom = -237.0
+text = "Cursor Color:"
+label_settings = ExtResource("5_ytha8")
+
+[node name="Red_color_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -237.0
+offset_right = 536.0
+offset_bottom = -206.0
+max_value = 255.0
+prefix = "Red: "
+custom_arrow_step = 0.01
+select_all_on_focus = true
+
+[node name="Green_color_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -206.0
+offset_right = 536.0
+offset_bottom = -175.0
+max_value = 255.0
+prefix = "Green: "
+custom_arrow_step = 0.01
+select_all_on_focus = true
+
+[node name="Blue_color_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -175.0
+offset_right = 536.0
+offset_bottom = -144.0
+max_value = 255.0
+prefix = "Blue: "
+custom_arrow_step = 0.01
+select_all_on_focus = true
+
+[node name="Opacity_color_box" type="SpinBox" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 406.0
+offset_top = -144.0
+offset_right = 536.0
+offset_bottom = -113.0
+max_value = 255.0
+prefix = "Opacity: "
+custom_arrow_step = 0.01
+select_all_on_focus = true
+
+[node name="Add_Dot" type="Button" parent="Circle_Control"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = -109.0
+offset_right = 510.0
+offset_bottom = -78.0
+text = "Add dot"
+
+[connection signal="resized" from="ToolTip" to="ToolTip" method="_on_resized"]
+[connection signal="pressed" from="Circle_Control/Left_Arrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="Circle_Control/Right_Arrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="text_changed" from="Circle_Control/Name" to="." method="_on_name_text_changed"]
+[connection signal="value_changed" from="Circle_Control/Height_box" to="." method="_on_height_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/Width_box" to="." method="_on_width_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/X_loc_box" to="." method="_on_x_loc_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/Y_loc_box" to="." method="_on_y_loc_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/Red_color_box" to="." method="_on_red_color_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/Green_color_box" to="." method="_on_green_color_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/Blue_color_box" to="." method="_on_blue_color_box_value_changed"]
+[connection signal="value_changed" from="Circle_Control/Opacity_color_box" to="." method="_on_opacity_color_box_value_changed"]
+[connection signal="pressed" from="Circle_Control/Add_Dot" to="." method="_on_add_dot_pressed"]

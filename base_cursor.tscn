@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi4ojvye318qe"]
+
+[ext_resource type="Shader" path="res://circle_shader.gdshader" id="1_lumsb"]
+[ext_resource type="Texture2D" uid="uid://dyc28obcl35yu" path="res://icon.svg" id="2_hvo5y"]
+[ext_resource type="Script" path="res://circle_thing.gd" id="3_7l052"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wssgg"]
+shader = ExtResource("1_lumsb")
+shader_parameter/widthScale = 0.5
+shader_parameter/heightScale = 0.5
+shader_parameter/opacity = 1.0
+shader_parameter/color = Vector3(0, 0.5, 0.5)
+shader_parameter/borderWidth = 0.01
+
+[node name="Cursor0" type="Sprite2D"]
+material = SubResource("ShaderMaterial_wssgg")
+texture = ExtResource("2_hvo5y")
+script = ExtResource("3_7l052")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
