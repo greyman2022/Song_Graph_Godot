@@ -28,7 +28,7 @@ void fragment() {
 	} else if (centered.x <= xValueOnEdge + borderWidth && centered.x >= xValueOnEdge - borderWidth){
 		COLOR.rgba = vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	} else if (centered.x < xValueOnEdge - borderWidth && centered.x > -1.0f*xValueOnEdge + borderWidth){
-		COLOR.rbga = vec4(color, opacity);
+		COLOR.rbga = vec4(color.x, color.y, color.z, opacity);
 	} else {
 		COLOR.rgba = vec4(0.0f);
 	}

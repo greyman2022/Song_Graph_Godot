@@ -47,8 +47,8 @@ func select(cursorNum):
 	circle_control.get_child(5).value = cursor.position.x
 	circle_control.get_child(6).value = cursor.position.y * -1 # to make it more intuitive and follow the graph
 	circle_control.get_child(8).value = cursor.color.x * 255
-	circle_control.get_child(9).value = cursor.color.y * 255
-	circle_control.get_child(10).value = cursor.color.z * 255
+	circle_control.get_child(9).value = cursor.color.z * 255
+	circle_control.get_child(10).value = cursor.color.y * 255
 	circle_control.get_child(11).value = cursor.opacity * 255
 
 #im kinda mad at myself but like I got myself into this mess
